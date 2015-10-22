@@ -8,8 +8,9 @@ makeCacheMatrix <- function(x = matrix()) {
       #set as NULL for a new matrix 
       i<-NULL
       
-      # function to set the stored matrix to y.  Reset i to NULL since 
-      #inverse not yet computed
+      #function to set the stored matrix to y.  
+      #Reset i to NULL since inverse not yet computed
+      #Use <<- op because want to set x and i outside of just "set" function
       set <- function(y) {
          x <<- y
          i <<- NULL
@@ -19,6 +20,7 @@ makeCacheMatrix <- function(x = matrix()) {
       get <- function() x
       
       #function to set inverse i to calculated value inv
+      #again, need <<- so i is set outside of environment of "setinv"
       setinv <- function(inv) i <<- inv
       
       #function to return inverse
